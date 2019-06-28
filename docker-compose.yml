@@ -1,5 +1,12 @@
 version: '2'
 services:
+  wifi-connect:
+    build: ./wifi-connect
+    privileged: true
+    restart: always
+    network_mode: "host"
+    labels:
+      io.balena.features.dbus: '1'
   player:
     build: ./player
     privileged: true
