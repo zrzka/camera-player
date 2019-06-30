@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Give it a chance to connect before checking
+sleep 15
+
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # Choose a condition for running WiFi Connect according to your use case:
