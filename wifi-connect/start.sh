@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Give it a chance to connect before checking
+printf "Waiting for 15s before connection check...\n"
 sleep 15
 
 export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
@@ -20,9 +21,9 @@ export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 iwgetid -r
 
 if [ $? -eq 0 ]; then
-    printf 'Skipping WiFi Connect\n'
+    printf "Skipping WiFi Connect, active WiFi connection found\n"
 else
-    printf 'Starting WiFi Connect\n'
+    printf "Starting WiFi Connect, no active WiFi connection found\n"
     ./wifi-connect
 fi
 
